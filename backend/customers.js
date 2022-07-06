@@ -7,7 +7,8 @@ var dynamodb = new AWS.DynamoDB.DocumentClient();
 var tableName = process.env.DYNAMODB_TABLE;
 
 module.exports.create = async function (event, context) {
-  const body = JSON.parse(event["body"]);
+  const body = JSON.parse(event.body);
+  console.log(body);
   const customer_id = body["customer_id"];
   const profile_data = body["profile_data"];
   const putParams = {
