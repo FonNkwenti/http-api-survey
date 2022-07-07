@@ -3,7 +3,7 @@ var AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-1" });
 
 // Load the UUID library
-const { v4: uuidv4 } = require("uuid");
+const { v4 } = require("uuid");
 
 // Create the DynamoDB Document Client
 var dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -12,7 +12,7 @@ var tableName = process.env.DYNAMODB_TABLE;
 module.exports.create = async function (event, context) {
   const body = JSON.parse(event["body"]);
   const customer_id = body["customer_id"];
-  const survey_id = uuidv4();
+  const survey_id = v4().toString();
   const survey_data = body["survey_data"];
   const putParams = {
     TableName: tableName,
