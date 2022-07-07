@@ -7,7 +7,7 @@ on:
   # workflow_call:
 
 jobs:
-  call-template-workflow:
+  call-reusable-workflow:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
       stage: prod

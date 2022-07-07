@@ -1,4 +1,4 @@
-name: Deploy main branch
+name: Reusable Workflow
 
 on:
   # push:
