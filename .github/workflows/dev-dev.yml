@@ -6,10 +6,11 @@ on:
       - dev
 
 jobs:
-  call-template-workflow:
+  call-reusable-workflow:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
-      stage: dev # this will be passed to the template-workflow so that sls deploys to this dev stage with args.
+      stage: dev
+      region: us-east-2
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
