@@ -10,10 +10,10 @@ var dynamodb = new AWS.DynamoDB.DocumentClient();
 var tableName = process.env.DYNAMODB_TABLE;
 
 module.exports.create = async function (event, context) {
-  const body = JSON.parse(event["body"]);
-  const customer_id = body["customer_id"];
+  const body = JSON.parse(event.body);
+  const customer_id = body.customer_id;
   const survey_id = v4().toString();
-  const survey_data = body["survey_data"];
+  const survey_data = body.survey_data;
   const putParams = {
     TableName: tableName,
     Item: {
@@ -35,7 +35,7 @@ module.exports.create = async function (event, context) {
 };
 
 module.exports.get = async function (event, context) {
-  const survey_id = event["pathParameters"]["id"];
+  const survey_id = event.pathParameters.id;
   const queryParams = {
     TableName: tableName,
     IndexName: "sk-pk-index",
@@ -59,7 +59,7 @@ module.exports.get = async function (event, context) {
 
 module.exports.get_all = async function (event, context) {
   console.log(event);
-  const customer_id = event["pathParameters"]["id"];
+  const customer_id = event.pathParameters.id;
   const queryParams = {
     TableName: tableName,
     KeyConditionExpression: "pk = :pk AND begins_with ( sk , :sk )",
