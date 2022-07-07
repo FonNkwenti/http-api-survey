@@ -1,4 +1,4 @@
-org: fonnkwenti
+#org: fonnkwenti #commenting  out my org to solve 'You are not currently logged in' which causes my github actions to fail
 app: http-api
 service: surveys-node
 
