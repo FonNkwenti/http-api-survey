@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-template-workflow:
-    uses: ./.github/workflows/template-workflow.yml
+    uses: ./.github/workflows/reusable-workflow.yml
     with:
       stage: dev # this will be passed to the template-workflow so that sls deploys to this dev stage with args.
     secrets:

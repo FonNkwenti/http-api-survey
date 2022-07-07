@@ -8,7 +8,7 @@ on:
 
 jobs:
   call-template-workflow:
-    uses: ./.github/workflows/template-workflow.yml
+    uses: ./.github/workflows/reusable-workflow.yml
     with:
       stage: prod
       region: us-east-1
